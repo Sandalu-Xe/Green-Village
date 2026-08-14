@@ -89,7 +89,7 @@ export function Header() {
       <ImageMotion />
       <div className="shell site-header__inner">
         <a className="brand" href="/" aria-label="Green Village Anuradhapura home">
-          <span className="brand__mark">GV</span>
+          <span className="brand__mark"><img src="/green-village-logo.png" alt="" /></span>
           <span><strong>Green Village</strong><small>Anuradhapura</small></span>
         </a>
         <nav className="site-nav" aria-label="Main navigation">
@@ -114,7 +114,7 @@ export function Footer() {
       <div className="shell footer-grid">
         <div>
           <a className="brand brand--footer" href="/">
-            <span className="brand__mark">GV</span>
+            <span className="brand__mark"><img src="/green-village-logo.png" alt="" /></span>
             <span><strong>Green Village</strong><small>Anuradhapura</small></span>
           </a>
           <p>A peaceful family homestay and local gateway to Sri Lanka&apos;s ancient capital.</p>

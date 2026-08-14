@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://green-village-anuradhapura.example"),
+  metadataBase: new URL("https://green-village-anuradhapura.nipunaj688426.chatgpt.site"),
   title: {
     default: "Green Village Anuradhapura",
     template: "%s | Green Village Anuradhapura",
   },
   description:
     "A peaceful family homestay and personal Anuradhapura experiences with Gunarathna, a local teacher and guide.",
+  icons: {
+    icon: "/green-village-icon.png",
+    apple: "/green-village-logo.png",
+  },
   openGraph: {
     title: "Green Village Anuradhapura",
     description: "Stay local. Explore ancient Anuradhapura.",
