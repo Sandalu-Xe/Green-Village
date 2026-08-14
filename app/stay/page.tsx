@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Stay" };
@@ -61,7 +60,7 @@ export default function StayPage() {
         <section className="section section--cream">
           <div className="shell location-card">
             <div><p className="eyebrow">Location</p><h2>Thalawa, near Anuradhapura</h2></div>
-            <div><p>Green Village is in a quiet local neighbourhood outside the busy centre. The Airbnb description notes that Anuradhapura can be reached by local bus; confirm the best route for your arrival directly with the host.</p><Link className="text-link" href="/guide">Read the travel guide <span aria-hidden="true">→</span></Link></div>
+            <div><p>Green Village is in a quiet local neighbourhood outside the busy centre. The Airbnb description notes that Anuradhapura can be reached by local bus; confirm the best route for your arrival directly with the host.</p><a className="text-link" href="/guide">Read the travel guide <span aria-hidden="true">→</span></a></div>
           </div>
         </section>
         <SimpleCta />

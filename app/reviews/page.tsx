@@ -12,8 +12,8 @@ export default function ReviewsPage() {
           eyebrow="Guest impressions"
           title="Remembered for kindness, knowledge and connection."
           intro="Across the stay and guided tour, travellers return to the same themes: feeling at home, learning deeply and wishing they had stayed longer."
-          image="/images/experiences/e1ae053df0b784c7.avif"
-          imageAlt="Gunarathna with happy guests beneath an old tree"
+          image="/images/family-guest-welcome.webp"
+          imageAlt="Gunarathna and his family with happy Green Village guests"
         />
 
         <section className="section trust-band">

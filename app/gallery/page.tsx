@@ -24,7 +24,7 @@ export default function GalleryPage() {
           <div className="shell">
             <div className="gallery-heading-row">
               <SectionHeading
-                eyebrow="The homestay · 5 photographs"
+                eyebrow="The homestay · 6 photographs"
                 title="Your quiet village base."
                 intro="The guest room, veranda, garden home and nearby nature at Green Village."
               />

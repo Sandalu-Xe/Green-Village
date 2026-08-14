@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Anuradhapura Travel Guide" };
@@ -55,7 +54,7 @@ export default function GuidePage() {
               <article className="info-card"><h3>Allow enough time</h3><p>A guided half-day covers important sites, but a slower overnight visit creates space for village life and quieter moments.</p></article>
               <article className="info-card"><h3>Choose your transport</h3><p>The sacred city is extensive. Bicycles, tuk-tuks and other options suit different comfort levels.</p></article>
               <article className="info-card"><h3>Check current tickets</h3><p>Prices can change with exchange rates. Use the official Central Cultural Fund page before your visit.</p><a className="text-link" href="https://ccf.gov.lk/vsl/tickets.html" target="_blank" rel="noreferrer">Official ticket information ↗</a></article>
-              <article className="info-card"><h3>Ask a local</h3><p>Opening conditions, ceremonies and the best order can vary. Gunarathna can shape the day around your interests.</p><Link className="text-link" href="/experiences">Explore the guided tour <span aria-hidden="true">→</span></Link></article>
+              <article className="info-card"><h3>Ask a local</h3><p>Opening conditions, ceremonies and the best order can vary. Gunarathna can shape the day around your interests.</p><a className="text-link" href="/experiences">Explore the guided tour <span aria-hidden="true">→</span></a></article>
             </div>
           </div>
         </section>

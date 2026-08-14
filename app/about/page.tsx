@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "About Gunarathna" };
@@ -13,8 +12,8 @@ export default function AboutPage() {
           eyebrow="About Gunarathna"
           title="A host, teacher and storyteller of his home."
           intro="Gunarathna welcomes travellers with the care of a hotel professional and the perspective of someone deeply connected to village life."
-          image="/images/experiences/542507e3110466d3.avif"
-          imageAlt="Gunarathna smiling during a guided Anuradhapura experience"
+          image="/images/family-guest-welcome.webp"
+          imageAlt="Gunarathna and his family welcoming guests at Green Village"
         />
 
         <section className="section">
@@ -45,7 +44,7 @@ export default function AboutPage() {
             <div>
               <SectionHeading eyebrow="A positive local story" title="Travel that gives something back." />
               <div className="prose"><p>Gunarathna teaches English voluntarily and has described using part of the family&apos;s tourism income to help students who need stationery, uniforms and learning materials.</p><p>The website communicates this carefully: as an ongoing local commitment, not as a spectacle. Any future photographs involving students should be published only with appropriate adult and guardian consent.</p></div>
-              <Link className="text-link" href="/contact">Plan a thoughtful visit <span aria-hidden="true">→</span></Link>
+              <a className="text-link" href="/contact">Plan a thoughtful visit <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </section>

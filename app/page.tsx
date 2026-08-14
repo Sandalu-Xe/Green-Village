@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   Footer,
   Gallery,
@@ -14,7 +13,7 @@ export default function Home() {
       <Header />
       <main>
         <section className="home-hero">
-          <div className="home-hero__image" role="img" aria-label="Green village landscape near Anuradhapura" />
+          <div className="home-hero__image" role="img" aria-label="Gunarathna and his family welcoming guests at Green Village" />
           <div className="home-hero__overlay" />
           <div className="shell home-hero__content">
             <p className="eyebrow eyebrow--light">Homestay · Local guide · Village life</p>
@@ -24,8 +23,8 @@ export default function Home() {
               a local teacher, storyteller and experienced host.
             </p>
             <div className="button-row">
-              <Link className="button button--clay" href="/stay">Explore the homestay</Link>
-              <Link className="button button--ghost-light" href="/experiences">Tour with Gunarathna</Link>
+              <a className="button button--clay" href="/stay">Explore the homestay</a>
+              <a className="button button--ghost-light" href="/experiences">Tour with Gunarathna</a>
             </div>
           </div>
           <div className="hero-note">Thalawa · North Central Province · Sri Lanka</div>
@@ -46,7 +45,7 @@ export default function Home() {
                 Share a meal, learn a story and discover places with someone who calls
                 this region home.
               </p>
-              <Link className="text-link" href="/about">Meet Gunarathna <span aria-hidden="true">→</span></Link>
+              <a className="text-link" href="/about">Meet Gunarathna <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </section>
@@ -69,7 +68,7 @@ export default function Home() {
                     <p className="eyebrow">{item.kicker}</p>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
-                    <Link className="text-link" href={item.href}>Discover more <span aria-hidden="true">→</span></Link>
+                    <a className="text-link" href={item.href}>Discover more <span aria-hidden="true">→</span></a>
                   </div>
                 </article>
               ))}
@@ -81,10 +80,10 @@ export default function Home() {
           <div className="shell story-grid">
             <div className="story-photo">
               <img
-                src="/images/experiences/542507e3110466d3.avif"
-                alt="Gunarathna smiling during an Anuradhapura tour"
+                src="/images/family-guest-welcome.webp"
+                alt="Gunarathna and his family welcoming guests at Green Village"
               />
-              <span className="story-photo__caption">Ancient places, shared through local stories.</span>
+              <span className="story-photo__caption">Warm welcomes and friendships that travel home with you.</span>
             </div>
             <div className="story-copy">
               <p className="eyebrow">Your host and guide</p>
@@ -101,7 +100,7 @@ export default function Home() {
                 <div><strong>4.97</strong><span>Tour rating</span></div>
                 <div><strong>100+</strong><span>Tour reviews</span></div>
               </div>
-              <Link className="button button--forest" href="/about">Read our story</Link>
+              <a className="button button--forest" href="/about">Read our story</a>
             </div>
           </div>
         </section>
@@ -124,7 +123,7 @@ export default function Home() {
                 <p className="eyebrow">Guest impressions</p>
                 <h2>What travellers remember</h2>
               </div>
-              <Link className="text-link" href="/reviews">Read review themes <span aria-hidden="true">→</span></Link>
+              <a className="text-link" href="/reviews">Read review themes <span aria-hidden="true">→</span></a>
             </div>
             <div className="quote-grid">
               {reviews.slice(0, 3).map((review) => (
@@ -147,7 +146,7 @@ export default function Home() {
               <p className="eyebrow eyebrow--light">Plan your stay</p>
               <h2>Ready to experience Anuradhapura differently?</h2>
             </div>
-            <Link className="button button--cream" href="/contact">Plan your visit</Link>
+            <a className="button button--cream" href="/contact">Plan your visit</a>
           </div>
         </section>
       </main>

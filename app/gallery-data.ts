@@ -6,6 +6,7 @@ export type GalleryPhoto = {
 };
 
 export const stayPhotos: GalleryPhoto[] = [
+  { src: "/images/family-guest-welcome.webp", alt: "Gunarathna and his family welcoming guests at Green Village", caption: "Guests become family", category: "Stay" },
   { src: "/images/stay/40e420b66f1aaf5f.avif", alt: "Green Village guesthouse beneath tropical trees", caption: "Welcome to Green Village", category: "Stay" },
   { src: "/images/stay/07f62aac7dcc57fb.avif", alt: "Guest room with two neatly prepared beds", caption: "Room for a restful stay", category: "Stay" },
   { src: "/images/stay/8c421cecd935a55c.avif", alt: "Green Village guest room with dressing table and window", caption: "Simple village comfort", category: "Stay" },
@@ -45,13 +46,14 @@ export const tourPhotos: GalleryPhoto[] = [
 export const galleryPhotos = [
   stayPhotos[0],
   tourPhotos[0],
-  stayPhotos[4],
+  stayPhotos[5],
   tourPhotos[7],
   stayPhotos[1],
   tourPhotos[8],
   tourPhotos[1],
-  stayPhotos[3],
+  stayPhotos[4],
   ...tourPhotos.slice(2, 7),
   stayPhotos[2],
+  stayPhotos[3],
   ...tourPhotos.slice(9),
 ];

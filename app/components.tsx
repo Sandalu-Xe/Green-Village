@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { galleryPhotos, type GalleryPhoto } from "./gallery-data";
+import { ImageMotion } from "./image-motion";
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -86,22 +86,23 @@ export const reviews = [
 export function Header() {
   return (
     <header className="site-header">
+      <ImageMotion />
       <div className="shell site-header__inner">
-        <Link className="brand" href="/" aria-label="Green Village Anuradhapura home">
+        <a className="brand" href="/" aria-label="Green Village Anuradhapura home">
           <span className="brand__mark">GV</span>
           <span><strong>Green Village</strong><small>Anuradhapura</small></span>
-        </Link>
+        </a>
         <nav className="site-nav" aria-label="Main navigation">
-          {navItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+          {navItems.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
         </nav>
         <details className="mobile-nav">
           <summary aria-label="Open navigation"><span>Menu</span><span aria-hidden="true">☰</span></summary>
           <nav aria-label="Mobile navigation">
-            {navItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
-            <Link className="mobile-nav__plan" href="/contact">Plan your visit</Link>
+            {navItems.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
+            <a className="mobile-nav__plan" href="/contact">Plan your visit</a>
           </nav>
         </details>
-        <Link className="button button--small button--forest header-cta" href="/contact">Plan your visit</Link>
+        <a className="button button--small button--forest header-cta" href="/contact">Plan your visit</a>
       </div>
     </header>
   );
@@ -112,24 +113,24 @@ export function Footer() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <Link className="brand brand--footer" href="/">
+          <a className="brand brand--footer" href="/">
             <span className="brand__mark">GV</span>
             <span><strong>Green Village</strong><small>Anuradhapura</small></span>
-          </Link>
+          </a>
           <p>A peaceful family homestay and local gateway to Sri Lanka&apos;s ancient capital.</p>
         </div>
         <div>
           <h3>Explore</h3>
-          <Link href="/stay">Stay</Link>
-          <Link href="/experiences">Tours & experiences</Link>
-          <Link href="/guide">Anuradhapura guide</Link>
-          <Link href="/gallery">Gallery</Link>
+          <a href="/stay">Stay</a>
+          <a href="/experiences">Tours & experiences</a>
+          <a href="/guide">Anuradhapura guide</a>
+          <a href="/gallery">Gallery</a>
         </div>
         <div>
           <h3>Plan</h3>
-          <Link href="/about">About Gunarathna</Link>
-          <Link href="/reviews">Guest impressions</Link>
-          <Link href="/contact">Plan your visit</Link>
+          <a href="/about">About Gunarathna</a>
+          <a href="/reviews">Guest impressions</a>
+          <a href="/contact">Plan your visit</a>
         </div>
         <div>
           <h3>Book securely</h3>
@@ -165,7 +166,12 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt }: { eyebrow: 
           <p>{intro}</p>
         </div>
         <div className="page-hero__image-wrap">
-          <img className="page-hero__image" src={image} alt={imageAlt} fetchPriority="high" />
+          <img
+            className={`page-hero__image ${image.includes("family-guest-welcome") ? "page-hero__image--people" : ""}`}
+            src={image}
+            alt={imageAlt}
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>
@@ -198,7 +204,7 @@ export function Gallery({ limit = 9 }: { limit?: number }) {
   return (
     <>
       <PhotoGrid photos={visiblePhotos} priorityCount={2} />
-      {limit ? <div className="gallery-more"><Link className="button button--forest" href="/gallery">View all 31 photographs</Link></div> : null}
+      {limit ? <div className="gallery-more"><a className="button button--forest" href="/gallery">View all 32 photographs</a></div> : null}
     </>
   );
 }
@@ -208,7 +214,7 @@ export function SimpleCta() {
     <section className="closing-cta">
       <div className="shell closing-cta__inner">
         <div><p className="eyebrow eyebrow--light">A personal journey</p><h2>Let&apos;s plan your time in Anuradhapura.</h2></div>
-        <Link className="button button--cream" href="/contact">Plan your visit</Link>
+        <a className="button button--cream" href="/contact">Plan your visit</a>
       </div>
     </section>
   );
