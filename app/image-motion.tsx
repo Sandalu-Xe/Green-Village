@@ -5,7 +5,6 @@ import { useEffect } from "react";
 const motionSelector = [
   ".feature-card__image-wrap",
   ".story-photo",
-  ".gallery-item",
   ".page-hero__image-wrap",
   ".impact-image",
   ".experience-row img",

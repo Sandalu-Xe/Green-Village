@@ -1,5 +1,6 @@
 import { galleryPhotos, type GalleryPhoto } from "./gallery-data";
 import { ImageMotion } from "./image-motion";
+import { InteractiveGallery } from "./interactive-gallery";
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -179,24 +180,7 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt }: { eyebrow: 
 }
 
 export function PhotoGrid({ photos, priorityCount = 0 }: { photos: GalleryPhoto[]; priorityCount?: number }) {
-  return (
-    <div className="gallery-grid">
-      {photos.map((image, index) => (
-        <figure
-          className={`gallery-item ${index % 9 === 0 || index % 9 === 5 ? "gallery-item--wide" : ""} ${index % 11 === 3 ? "gallery-item--tall" : ""}`}
-          key={image.src}
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            loading={index < priorityCount ? "eager" : "lazy"}
-            decoding="async"
-          />
-          <figcaption><span>{image.category}</span>{image.caption}</figcaption>
-        </figure>
-      ))}
-    </div>
-  );
+  return <InteractiveGallery photos={photos} priorityCount={priorityCount} />;
 }
 
 export function Gallery({ limit = 9 }: { limit?: number }) {
