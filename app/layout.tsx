@@ -1,0 +1,35 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://green-village-anuradhapura.example"),
+  title: {
+    default: "Green Village Anuradhapura",
+    template: "%s | Green Village Anuradhapura",
+  },
+  description:
+    "A peaceful family homestay and personal Anuradhapura experiences with Gunarathna, a local teacher and guide.",
+  openGraph: {
+    title: "Green Village Anuradhapura",
+    description: "Stay local. Explore ancient Anuradhapura.",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Green Village Anuradhapura",
+    description: "Stay local. Explore ancient Anuradhapura.",
+    images: ["/og.png"],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
