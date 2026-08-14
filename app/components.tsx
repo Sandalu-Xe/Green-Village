@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { galleryPhotos, type GalleryPhoto } from "./gallery-data";
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -7,46 +8,7 @@ export const navItems = [
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
   { href: "/guide", label: "Travel Guide" },
-  { href: "/#gallery", label: "Gallery" },
-];
-
-export const galleryImages = [
-  {
-    src: "https://images.pexels.com/photos/33713450/pexels-photo-33713450.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1100&fit=crop",
-    alt: "White Ruwanweli Maha Seya stupa framed by greenery in Anuradhapura",
-    caption: "Ancient Anuradhapura",
-    className: "gallery-item--wide",
-  },
-  {
-    src: "https://images.pexels.com/photos/11495863/pexels-photo-11495863.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop",
-    alt: "Sri Lankan village house surrounded by coconut palms",
-    caption: "Village calm",
-    className: "",
-  },
-  {
-    src: "https://images.pexels.com/photos/37179402/pexels-photo-37179402.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop",
-    alt: "Traditional Sri Lankan breakfast being prepared in a home kitchen",
-    caption: "Food made together",
-    className: "",
-  },
-  {
-    src: "https://images.pexels.com/photos/19710786/pexels-photo-19710786.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop",
-    alt: "Cyclist riding along a quiet green path in Sri Lanka",
-    caption: "Slow village journeys",
-    className: "",
-  },
-  {
-    src: "https://images.pexels.com/photos/37114883/pexels-photo-37114883.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop",
-    alt: "Sri Lankan elephant walking through green forest",
-    caption: "Wild Sri Lanka",
-    className: "",
-  },
-  {
-    src: "https://images.pexels.com/photos/33265699/pexels-photo-33265699.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1100&fit=crop",
-    alt: "Pink lotus flowers across a green pond in Sri Lanka",
-    caption: "Nature in stillness",
-    className: "gallery-item--wide",
-  },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export const experienceCards = [
@@ -56,8 +18,8 @@ export const experienceCards = [
     title: "A peaceful village home",
     description: "Rest in a private, air-conditioned guest room and wake to palms, birds and a warm family welcome.",
     href: "/stay",
-    image: "https://images.pexels.com/photos/11495863/pexels-photo-11495863.jpeg?auto=compress&cs=tinysrgb&w=1100&h=900&fit=crop",
-    alt: "A tropical Sri Lankan house surrounded by coconut trees",
+    image: "/images/stay/40e420b66f1aaf5f.avif",
+    alt: "Green Village guesthouse beneath tropical trees",
   },
   {
     number: "02",
@@ -65,8 +27,8 @@ export const experienceCards = [
     title: "The sacred city, made personal",
     description: "Understand ancient monuments, Buddhist traditions and hidden details through Gunarathna's local stories.",
     href: "/experiences",
-    image: "https://images.pexels.com/photos/33713450/pexels-photo-33713450.jpeg?auto=compress&cs=tinysrgb&w=1100&h=900&fit=crop",
-    alt: "Ruwanweli Maha Seya stupa in Anuradhapura",
+    image: "/images/experiences/521903808b0729ec.avif",
+    alt: "White stupa framed by trees in Anuradhapura",
   },
   {
     number: "03",
@@ -74,8 +36,8 @@ export const experienceCards = [
     title: "Cook, share and slow down",
     description: "Join the family kitchen, learn traditional dishes and enjoy the generous pleasure of a meal made together.",
     href: "/experiences#village-life",
-    image: "https://images.pexels.com/photos/37179402/pexels-photo-37179402.jpeg?auto=compress&cs=tinysrgb&w=1100&h=900&fit=crop",
-    alt: "Traditional Sri Lankan cooking in a home kitchen",
+    image: "/images/experiences/c4253e6c91dfc117.avif",
+    alt: "Gunarathna with a family of visiting guests",
   },
   {
     number: "04",
@@ -83,8 +45,8 @@ export const experienceCards = [
     title: "Wildlife and wide horizons",
     description: "Ask Gunarathna about planning a wildlife day and the best seasonal route for your visit.",
     href: "/experiences#wildlife",
-    image: "https://images.pexels.com/photos/37114883/pexels-photo-37114883.jpeg?auto=compress&cs=tinysrgb&w=1100&h=900&fit=crop",
-    alt: "Sri Lankan elephant in green forest",
+    image: "/images/experiences/93e9532789b5936c.avif",
+    alt: "Ancient reservoir surrounded by tropical palms",
   },
 ];
 
@@ -132,6 +94,13 @@ export function Header() {
         <nav className="site-nav" aria-label="Main navigation">
           {navItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
         </nav>
+        <details className="mobile-nav">
+          <summary aria-label="Open navigation"><span>Menu</span><span aria-hidden="true">☰</span></summary>
+          <nav aria-label="Mobile navigation">
+            {navItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+            <Link className="mobile-nav__plan" href="/contact">Plan your visit</Link>
+          </nav>
+        </details>
         <Link className="button button--small button--forest header-cta" href="/contact">Plan your visit</Link>
       </div>
     </header>
@@ -154,7 +123,7 @@ export function Footer() {
           <Link href="/stay">Stay</Link>
           <Link href="/experiences">Tours & experiences</Link>
           <Link href="/guide">Anuradhapura guide</Link>
-          <Link href="/#gallery">Gallery</Link>
+          <Link href="/gallery">Gallery</Link>
         </div>
         <div>
           <h3>Plan</h3>
@@ -196,27 +165,40 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt }: { eyebrow: 
           <p>{intro}</p>
         </div>
         <div className="page-hero__image-wrap">
-          <img className="page-hero__image" src={image} alt={imageAlt} />
+          <img className="page-hero__image" src={image} alt={imageAlt} fetchPriority="high" />
         </div>
       </div>
     </section>
   );
 }
 
-export function Gallery() {
+export function PhotoGrid({ photos, priorityCount = 0 }: { photos: GalleryPhoto[]; priorityCount?: number }) {
+  return (
+    <div className="gallery-grid">
+      {photos.map((image, index) => (
+        <figure
+          className={`gallery-item ${index % 9 === 0 || index % 9 === 5 ? "gallery-item--wide" : ""} ${index % 11 === 3 ? "gallery-item--tall" : ""}`}
+          key={image.src}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            loading={index < priorityCount ? "eager" : "lazy"}
+            decoding="async"
+          />
+          <figcaption><span>{image.category}</span>{image.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+export function Gallery({ limit = 9 }: { limit?: number }) {
+  const visiblePhotos = limit ? galleryPhotos.slice(0, limit) : galleryPhotos;
   return (
     <>
-      <div className="gallery-grid">
-        {galleryImages.map((image) => (
-          <figure className={`gallery-item ${image.className}`} key={image.src}>
-            <img src={image.src} alt={image.alt} />
-            <figcaption>{image.caption}</figcaption>
-          </figure>
-        ))}
-      </div>
-      <p className="gallery-note">
-        Representative regional photography from Pexels. Replace with original Green Village photographs before the final public launch.
-      </p>
+      <PhotoGrid photos={visiblePhotos} priorityCount={2} />
+      {limit ? <div className="gallery-more"><Link className="button button--forest" href="/gallery">View all 31 photographs</Link></div> : null}
     </>
   );
 }

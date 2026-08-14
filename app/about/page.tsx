@@ -13,8 +13,8 @@ export default function AboutPage() {
           eyebrow="About Gunarathna"
           title="A host, teacher and storyteller of his home."
           intro="Gunarathna welcomes travellers with the care of a hotel professional and the perspective of someone deeply connected to village life."
-          image="https://images.pexels.com/photos/30783896/pexels-photo-30783896.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Anuradhapura stupa and lake in quiet morning light"
+          image="/images/experiences/542507e3110466d3.avif"
+          imageAlt="Gunarathna smiling during a guided Anuradhapura experience"
         />
 
         <section className="section">
@@ -41,7 +41,7 @@ export default function AboutPage() {
 
         <section className="section">
           <div className="shell impact-grid">
-            <div className="impact-image"><img src="https://images.pexels.com/photos/33265699/pexels-photo-33265699.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop" alt="Pink lotus flowers in a Sri Lankan pond" /></div>
+            <div className="impact-image"><img src="/images/experiences/4c1e9a4592c7d9da.avif" alt="Green rice fields and coconut palms near Green Village" loading="lazy" /></div>
             <div>
               <SectionHeading eyebrow="A positive local story" title="Travel that gives something back." />
               <div className="prose"><p>Gunarathna teaches English voluntarily and has described using part of the family&apos;s tourism income to help students who need stationery, uniforms and learning materials.</p><p>The website communicates this carefully: as an ongoing local commitment, not as a spectacle. Any future photographs involving students should be published only with appropriate adult and guardian consent.</p></div>

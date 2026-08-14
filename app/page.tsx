@@ -14,7 +14,7 @@ export default function Home() {
       <Header />
       <main>
         <section className="home-hero">
-          <div className="home-hero__image" role="img" aria-label="Ruwanweli Maha Seya stupa in Anuradhapura" />
+          <div className="home-hero__image" role="img" aria-label="Green village landscape near Anuradhapura" />
           <div className="home-hero__overlay" />
           <div className="shell home-hero__content">
             <p className="eyebrow eyebrow--light">Homestay · Local guide · Village life</p>
@@ -81,8 +81,8 @@ export default function Home() {
           <div className="shell story-grid">
             <div className="story-photo">
               <img
-                src="https://images.pexels.com/photos/30783896/pexels-photo-30783896.jpeg?auto=compress&cs=tinysrgb&w=1400&h=1600&fit=crop"
-                alt="Anuradhapura stupa reflected in a quiet lake at sunrise"
+                src="/images/experiences/542507e3110466d3.avif"
+                alt="Gunarathna smiling during an Anuradhapura tour"
               />
               <span className="story-photo__caption">Ancient places, shared through local stories.</span>
             </div>
@@ -109,9 +109,9 @@ export default function Home() {
         <section className="section section--cream" id="gallery">
           <div className="shell">
             <SectionHeading
-              eyebrow="A glimpse of the region"
-              title="Sacred places, village days and wild horizons."
-              intro="A quiet visual introduction to the landscapes and experiences around Green Village Anuradhapura."
+              eyebrow="Real moments from Green Village"
+              title="The stay, the sacred city and the people you meet."
+              intro="A curated preview from the real Green Village homestay and Gunarathna's Anuradhapura experience."
             />
             <Gallery />
           </div>

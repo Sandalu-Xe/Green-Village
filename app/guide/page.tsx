@@ -22,8 +22,8 @@ export default function GuidePage() {
           eyebrow="Anuradhapura travel guide"
           title="A sacred city best understood slowly."
           intro="Anuradhapura is not a single attraction. It is a wide living landscape of stupas, monasteries, reservoirs and active devotion."
-          image="https://images.pexels.com/photos/30783896/pexels-photo-30783896.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Stupa reflected across calm water at sunrise in Anuradhapura"
+          image="/images/experiences/acfd100d-f09f-4a0b-940b-d5becf9620f0.jpeg"
+          imageAlt="Ancient reservoir and tropical landscape near Anuradhapura"
         />
 
         <section className="section">

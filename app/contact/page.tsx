@@ -12,8 +12,8 @@ export default function ContactPage() {
           eyebrow="Contact & plan your visit"
           title="Tell Gunarathna what kind of journey you hope for."
           intro="Start with a stay, a guided tour or both. Use the secure Airbnb pages below to check availability and contact the host."
-          image="https://images.pexels.com/photos/33265699/pexels-photo-33265699.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Pink lotus flowers across a green pond in Sri Lanka"
+          image="/images/stay/7145002ed9686a48.avif"
+          imageAlt="Peaceful river bordered by tropical greenery near Green Village"
         />
 
         <section className="section">

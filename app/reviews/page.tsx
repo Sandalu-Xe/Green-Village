@@ -12,8 +12,8 @@ export default function ReviewsPage() {
           eyebrow="Guest impressions"
           title="Remembered for kindness, knowledge and connection."
           intro="Across the stay and guided tour, travellers return to the same themes: feeling at home, learning deeply and wishing they had stayed longer."
-          image="https://images.pexels.com/photos/11696781/pexels-photo-11696781.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Close view of the white Ruwanweli Maha Seya stupa"
+          image="/images/experiences/e1ae053df0b784c7.avif"
+          imageAlt="Gunarathna with happy guests beneath an old tree"
         />
 
         <section className="section trust-band">

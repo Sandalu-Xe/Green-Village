@@ -13,8 +13,8 @@ export default function StayPage() {
           eyebrow="Stay at Green Village"
           title="Rest in the quiet rhythm of village life."
           intro="A private guest room, a peaceful garden and a family who makes you feel at home—within easy reach of ancient Anuradhapura."
-          image="https://images.pexels.com/photos/11495863/pexels-photo-11495863.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Sri Lankan village home among coconut palms"
+          image="/images/stay/40e420b66f1aaf5f.avif"
+          imageAlt="Green Village guesthouse beneath tropical trees"
         />
 
         <section className="section">

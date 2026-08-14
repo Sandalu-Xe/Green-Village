@@ -12,8 +12,8 @@ export default function ExperiencesPage() {
           eyebrow="Tours & experiences"
           title="See the ancient city through local eyes."
           intro="Walk, listen, taste and discover at a human pace. Gunarathna brings history and village culture together in one personal journey."
-          image="https://images.pexels.com/photos/33713450/pexels-photo-33713450.jpeg?auto=compress&cs=tinysrgb&w=1500&h=1200&fit=crop"
-          imageAlt="Ruwanweli Maha Seya stupa in Anuradhapura"
+          image="/images/experiences/521903808b0729ec.avif"
+          imageAlt="White stupa framed by trees in Anuradhapura"
         />
 
         <section className="section">
@@ -46,7 +46,7 @@ export default function ExperiencesPage() {
             <SectionHeading eyebrow="More ways to explore" title="Build a visit that feels like your own." />
             <div className="experience-list">
               {experienceCards.slice(2).concat([
-                { number: "05", kicker: "Wander", title: "Village walk or cycle", description: "Follow quiet roads, notice everyday details and experience the landscape beyond the main sights.", href: "/contact", image: "https://images.pexels.com/photos/19710786/pexels-photo-19710786.jpeg?auto=compress&cs=tinysrgb&w=1100&h=900&fit=crop", alt: "Cyclist on a green Sri Lankan path" },
+                { number: "05", kicker: "Wander", title: "Village walk or cycle", description: "Follow quiet roads, notice everyday details and experience the landscape beyond the main sights.", href: "/contact", image: "/images/experiences/779b1bf74211ee25.avif", alt: "Guests walking a lakeside path near Anuradhapura" },
               ]).map((item) => (
                 <article className="experience-row" key={item.title} id={item.title.includes("Wildlife") ? "wildlife" : undefined}>
                   <img src={item.image} alt={item.alt} />
