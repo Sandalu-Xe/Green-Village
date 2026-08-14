@@ -120,24 +120,50 @@ export function Footer() {
           </a>
           <p>A peaceful family homestay and local gateway to Sri Lanka&apos;s ancient capital.</p>
         </div>
-        <div>
+        <div className="footer-links footer-links--desktop">
           <h3>Explore</h3>
           <a href="/stay">Stay</a>
           <a href="/experiences">Tours & experiences</a>
           <a href="/guide">Anuradhapura guide</a>
           <a href="/gallery">Gallery</a>
         </div>
-        <div>
+        <div className="footer-links footer-links--desktop">
           <h3>Plan</h3>
           <a href="/about">About Gunarathna</a>
           <a href="/reviews">Guest impressions</a>
           <a href="/contact">Plan your visit</a>
         </div>
-        <div>
+        <div className="footer-links footer-links--desktop">
           <h3>Book securely</h3>
           <a href="https://www.airbnb.com/rooms/13886001" target="_blank" rel="noreferrer">Homestay on Airbnb ↗</a>
           <a href="https://www.airbnb.co.uk/experiences/471573" target="_blank" rel="noreferrer">Tour on Airbnb ↗</a>
         </div>
+        <details className="footer-quick-menu">
+          <summary>
+            <span>Quick menu</span>
+            <span className="footer-quick-menu__icon" aria-hidden="true" />
+          </summary>
+          <div className="footer-quick-menu__panel">
+            <div>
+              <h3>Explore</h3>
+              <a href="/stay">Stay</a>
+              <a href="/experiences">Tours &amp; experiences</a>
+              <a href="/guide">Anuradhapura guide</a>
+              <a href="/gallery">Gallery</a>
+            </div>
+            <div>
+              <h3>Plan</h3>
+              <a href="/about">About Gunarathna</a>
+              <a href="/reviews">Guest impressions</a>
+              <a href="/contact">Plan your visit</a>
+            </div>
+            <div>
+              <h3>Book securely</h3>
+              <a href="https://www.airbnb.com/rooms/13886001" target="_blank" rel="noreferrer">Homestay on Airbnb ↗</a>
+              <a href="https://www.airbnb.co.uk/experiences/471573" target="_blank" rel="noreferrer">Tour on Airbnb ↗</a>
+            </div>
+          </div>
+        </details>
       </div>
       <div className="shell footer-bottom">
         <span>© 2026 Green Village Anuradhapura</span>
