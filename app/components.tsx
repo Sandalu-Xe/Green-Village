@@ -141,6 +141,7 @@ export function Footer() {
       </div>
       <div className="shell footer-bottom">
         <span>© 2026 Green Village Anuradhapura</span>
+        <span className="footer-credit">Designed &amp; developed by <strong>Sandalu</strong></span>
         <span>Thalawa, North Central Province, Sri Lanka</span>
       </div>
     </footer>

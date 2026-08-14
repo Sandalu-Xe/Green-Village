@@ -18,28 +18,46 @@ export default function ReviewsPage() {
 
         <section className="section trust-band">
           <div className="shell trust-grid">
-            <div><strong>4.96 / 5</strong><span>Homestay · 67 Airbnb reviews</span></div>
-            <div><strong>4.97 / 5</strong><span>Tour · 100 Airbnb reviews</span></div>
-            <div><strong>4.97 / 5</strong><span>Host profile · 176 reviews</span></div>
+            <a href="https://www.airbnb.com/rooms/13886001?modal=REVIEWS" target="_blank" rel="noreferrer" aria-label="Read all verified homestay reviews on Airbnb">
+              <strong>4.96 / 5</strong>
+              <span>Homestay · 67 Airbnb reviews</span>
+              <small>View verified reviews ↗</small>
+            </a>
+            <a href="https://www.airbnb.co.uk/experiences/471573?modal=REVIEWS" target="_blank" rel="noreferrer" aria-label="Read all verified tour reviews on Airbnb">
+              <strong>4.97 / 5</strong>
+              <span>Tour · 100 Airbnb reviews</span>
+              <small>View verified reviews ↗</small>
+            </a>
+            <a href="https://www.airbnb.com/users/profile/1462830811218687281" target="_blank" rel="noreferrer" aria-label="Open Gunarathna's verified Airbnb host profile">
+              <strong>4.97 / 5</strong>
+              <span>Host profile · 176 reviews</span>
+              <small>Open verified profile ↗</small>
+            </a>
           </div>
-          <p className="source-note source-note--center">Public ratings observed on 14 August 2026 and subject to change.</p>
+          <p className="source-note source-note--center">Verified directly on Airbnb on 14 August 2026. Ratings and review totals may change as new reviews are published.</p>
         </section>
 
         <section className="section section--cream">
           <div className="shell">
             <SectionHeading eyebrow="What guests talk about" title="Six themes that appear again and again." />
+            <p className="review-disclosure">The cards below summarize recurring themes; they are not verbatim quotations. Read the original reviews through the verified Airbnb links.</p>
             <div className="quote-grid quote-grid--two">
-              {reviews.map((review) => <blockquote className="quote-card" key={review.title}><div className="quote-mark" aria-hidden="true">“</div><p>{review.text}</p><footer>{review.title}<span>{review.source}</span></footer></blockquote>)}
+              {reviews.map((review) => <article className="quote-card theme-card" key={review.title}><div className="theme-label">Review theme</div><p>{review.text}</p><footer>{review.title}<span>{review.source}</span></footer></article>)}
             </div>
           </div>
         </section>
 
         <section className="section">
           <div className="shell review-links">
-            <SectionHeading eyebrow="Read verified reviews" title="See the latest feedback at the source." />
+            <SectionHeading
+              eyebrow="Read verified reviews"
+              title="Every rating links to its source."
+              intro="Green Village does not invent or rewrite ratings. Use these links to read every published review directly on Airbnb."
+            />
             <div className="button-row">
-              <a className="button button--forest" href="https://www.airbnb.com/rooms/13886001" target="_blank" rel="noreferrer">Homestay reviews ↗</a>
-              <a className="button button--outline" href="https://www.airbnb.co.uk/experiences/471573" target="_blank" rel="noreferrer">Tour reviews ↗</a>
+              <a className="button button--forest" href="https://www.airbnb.com/rooms/13886001?modal=REVIEWS" target="_blank" rel="noreferrer">All homestay reviews ↗</a>
+              <a className="button button--outline" href="https://www.airbnb.co.uk/experiences/471573?modal=REVIEWS" target="_blank" rel="noreferrer">All tour reviews ↗</a>
+              <a className="button button--outline" href="https://www.airbnb.com/users/profile/1462830811218687281" target="_blank" rel="noreferrer">Verified host profile ↗</a>
             </div>
           </div>
         </section>
