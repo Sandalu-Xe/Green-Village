@@ -19,8 +19,8 @@ export default function Home() {
             <p className="eyebrow eyebrow--light">Homestay · Local guide · Village life</p>
             <h1>Stay local.<br />Explore ancient Anuradhapura.</h1>
             <p className="hero-copy">
-              A peaceful village homestay and personal journeys with Gunarathna,
-              a local teacher, storyteller and experienced host.
+              A peaceful village homestay and personal journeys with Gunarathna —
+              a local English teacher, volunteer and Airbnb&apos;s highest-reviewed guide.
             </p>
             <div className="button-row">
               <a className="button button--clay" href="/stay">Explore the homestay</a>
@@ -81,24 +81,26 @@ export default function Home() {
             <div className="story-photo">
               <img
                 src="/images/family-guest-welcome.webp"
-                alt="Gunarathna and his family welcoming guests at Green Village"
+                alt="Gunarathna welcoming guests at Green Village with a warm smile"
               />
-              <span className="story-photo__caption">Warm welcomes and friendships that travel home with you.</span>
+              <span className="story-photo__caption">From the classroom to the sacred city — a guide shaped by kindness.</span>
             </div>
             <div className="story-copy">
               <p className="eyebrow">Your host and guide</p>
               <h2>Meet Gunarathna</h2>
-              <p className="story-quote">“The best journeys are not rushed. They are shared.”</p>
+              <p className="story-quote">&ldquo;I teach because I believe knowledge should reach everyone. I guide because every traveller deserves to feel this place.&rdquo;</p>
               <p>
-                After many years working in hospitality, Gunarathna now welcomes
-                travellers into his village and guides them through the sacred city.
-                His fluent English, gentle pace and love of teaching turn monuments
-                into meaningful stories.
+                Gunarathna is an English teacher who has spent years educating children
+                in the Sri Lankan countryside — many of them from underprivileged families
+                he supports as a volunteer. With more than twenty years in the tourism
+                industry and the highest-reviewed tour guide status on Airbnb,
+                he brings a rare combination of warmth, knowledge and storytelling
+                to every journey through the ancient city.
               </p>
               <div className="quiet-stats" aria-label="Green Village trust signals">
-                <div><strong>4.96</strong><span>Homestay rating</span></div>
-                <div><strong>4.97</strong><span>Tour rating</span></div>
-                <div><strong>100+</strong><span>Tour reviews</span></div>
+                <div><strong>20+</strong><span>Years in tourism</span></div>
+                <div><strong>4.97</strong><span>Airbnb rating</span></div>
+                <div><strong>★★★★★</strong><span>Highest reviewed guide</span></div>
               </div>
               <a className="button button--forest" href="/about">Read our story</a>
             </div>

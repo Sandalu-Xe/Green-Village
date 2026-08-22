@@ -41,6 +41,43 @@ export default function ExperiencesPage() {
           </div>
         </section>
 
+        {/* ── Transport options ───────────────────────────── */}
+        <section className="section section--cream">
+          <div className="shell">
+            <SectionHeading
+              eyebrow="Choose your ride"
+              title="Every journey has a way that suits you."
+              intro="This tour can be done by bicycle, tuk tuk or car. If you have your own vehicle, that works too — the choice is yours."
+            />
+            <div className="transport-grid">
+              <article className="transport-card">
+                <span className="transport-card__icon">🚲</span>
+                <h3>By Bicycle</h3>
+                <p>Pedal at your own pace through shaded roads and ancient pathways. The most immersive way to feel the landscape.</p>
+                <span className="soft-label">Popular with adventurous guests</span>
+              </article>
+              <article className="transport-card">
+                <span className="transport-card__icon">🛺</span>
+                <h3>By Tuk Tuk</h3>
+                <p>A classic Sri Lankan experience. Comfortable, breezy and easy to hop on and off between monuments.</p>
+                <span className="soft-label">Most popular choice</span>
+              </article>
+              <article className="transport-card">
+                <span className="transport-card__icon">🚗</span>
+                <h3>By Car</h3>
+                <p>Air-conditioned and private. Ideal for families, older travellers or anyone who prefers a relaxed, comfortable ride.</p>
+                <span className="soft-label">Great for families</span>
+              </article>
+              <article className="transport-card">
+                <span className="transport-card__icon">🔑</span>
+                <h3>Your Own Vehicle</h3>
+                <p>If you have your own wheels — whether rented or personal — Gunarathna will guide you along the best route.</p>
+                <span className="soft-label">Flexible &amp; convenient</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section className="section section--sage" id="village-life">
           <div className="shell">
             <SectionHeading eyebrow="More ways to explore" title="Build a visit that feels like your own." />
@@ -63,7 +100,7 @@ export default function ExperiencesPage() {
             <div className="info-grid info-grid--four">
               <article className="info-card"><h3>Temple clothing</h3><p>Cover shoulders and legs. Shoes and hats are removed at sacred areas.</p></article>
               <article className="info-card"><h3>Entry fees</h3><p>Heritage tickets and selected temple fees may be separate. Confirm current prices before your day.</p></article>
-              <article className="info-card"><h3>Getting around</h3><p>The ancient city is spread out. Depending on your needs, use bicycles, tuk-tuk or another agreed option.</p></article>
+              <article className="info-card"><h3>Getting around</h3><p>The ancient city is spread out. Choose a bicycle, tuk tuk, car or bring your own vehicle — Gunarathna adapts the tour to whichever suits you best.</p></article>
               <article className="info-card"><h3>Comfort</h3><p>Bring water, sun protection and footwear that is easy to remove.</p></article>
             </div>
           </div>
