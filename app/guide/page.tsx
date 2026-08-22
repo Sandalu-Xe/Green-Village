@@ -52,7 +52,7 @@ export default function GuidePage() {
             <div><p className="eyebrow">Practical planning</p><h2>Make room for the whole experience.</h2></div>
             <div className="info-grid">
               <article className="info-card"><h3>Allow enough time</h3><p>A guided half-day covers important sites, but a slower overnight visit creates space for village life and quieter moments.</p></article>
-              <article className="info-card"><h3>Choose your transport</h3><p>The sacred city is extensive. Bicycles, tuk-tuks and other options suit different comfort levels.</p></article>
+              <article className="info-card"><h3>Choose your transport</h3><p>Explore by bicycle, tuk tuk, car or your own vehicle. The sacred city is extensive — Gunarathna adapts the route to whichever way suits you best.</p></article>
               <article className="info-card"><h3>Check current tickets</h3><p>Prices can change with exchange rates. Use the official Central Cultural Fund page before your visit.</p><a className="text-link" href="https://ccf.gov.lk/vsl/tickets.html" target="_blank" rel="noreferrer">Official ticket information ↗</a></article>
               <article className="info-card"><h3>Ask a local</h3><p>Opening conditions, ceremonies and the best order can vary. Gunarathna can shape the day around your interests.</p><a className="text-link" href="/experiences">Explore the guided tour <span aria-hidden="true">→</span></a></article>
             </div>

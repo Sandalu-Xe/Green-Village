@@ -295,6 +295,16 @@ h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); }
 .journey-card h3 { margin-bottom: 14px; }
 .journey-card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.65; }
 
+/* Landmark cards */
+.landmark-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.landmark-card { position: relative; min-height: 260px; padding: 34px 28px 30px; overflow: hidden; background: var(--paper); border: 1px solid rgba(21,61,50,.08); border-radius: 18px; box-shadow: 0 12px 38px rgba(13,42,34,.06); transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease; }
+.landmark-card:hover { transform: translateY(-5px); box-shadow: 0 24px 55px rgba(13,42,34,.12); }
+.landmark-card::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 4px; background: linear-gradient(180deg, var(--forest), var(--clay)); transform: scaleY(0); transform-origin: top; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.landmark-card:hover::before { transform: scaleY(1); }
+.landmark-card__number { display: block; margin-bottom: 18px; color: var(--clay); font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
+.landmark-card h3 { margin-bottom: 12px; font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
+.landmark-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+
 .trust-band { padding: 70px 0; }
 .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .trust-grid a { padding: 28px 40px; text-align: center; border-right: 1px solid var(--line); transition: background-color .3s ease, transform .3s ease; }
@@ -346,6 +356,8 @@ h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .info-grid--four, .values-grid { grid-template-columns: repeat(2, 1fr); }
   .journey-grid { grid-template-columns: repeat(2, 1fr); }
+  .transport-grid { grid-template-columns: repeat(2, 1fr); }
+  .landmark-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 760px) {
@@ -384,6 +396,9 @@ h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); }
   .values-grid { grid-template-columns: 1fr; }
   .journey-grid { grid-template-columns: 1fr; }
   .journey-card { min-height: 240px; }
+  .transport-grid { grid-template-columns: 1fr; }
+  .landmark-grid { grid-template-columns: 1fr; }
+  .landmark-card { min-height: 200px; }
   .values-grid article { min-height: 230px; }
   .trust-grid { grid-template-columns: 1fr; }
   .trust-grid a { border-right: 0; border-bottom: 1px solid var(--line); }
