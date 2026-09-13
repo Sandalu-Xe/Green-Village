@@ -1,5 +1,6 @@
 import { galleryPhotos, type GalleryPhoto } from "./gallery-data";
 import { ImageMotion } from "./image-motion";
+import { NavigationBehavior } from "./navigation-behavior";
 import { InteractiveGallery } from "./interactive-gallery";
 
 export const navItems = [
@@ -88,6 +89,7 @@ export function Header() {
   return (
     <header className="site-header">
       <ImageMotion />
+      <NavigationBehavior />
       <div className="shell site-header__inner">
         <a className="brand" href="/" aria-label="Green Village Anuradhapura home">
           <span className="brand__mark"><img src="/green-village-logo.png" alt="" /></span>

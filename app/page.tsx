@@ -17,7 +17,7 @@ export default function Home() {
           <div className="home-hero__overlay" />
           <div className="shell home-hero__content">
             <p className="eyebrow eyebrow--light">Homestay · Local guide · Village life</p>
-            <h1>Stay local.<br />Explore ancient Anuradhapura.</h1>
+            <h1>Stay local.<br /><em>Explore ancient</em> Anuradhapura.</h1>
             <p className="hero-copy">
               A peaceful village homestay and personal journeys with Gunarathna —
               a local English teacher, volunteer and Airbnb&apos;s highest-reviewed guide.
