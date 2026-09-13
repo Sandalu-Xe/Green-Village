@@ -1,16 +1,12 @@
+import { experienceCards, reviews } from "./_data/site";
 import {
-  Footer,
   Gallery,
-  Header,
   SectionHeading,
-  experienceCards,
-  reviews,
 } from "./components";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <section className="home-hero">
           <div className="home-hero__image" role="img" aria-label="Gunarathna and his family welcoming guests at Green Village" />
@@ -152,7 +148,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

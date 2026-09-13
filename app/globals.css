@@ -1,3 +1,2 @@
-@import "tailwindcss";
-@import "./base.css";
-@import "./editorial.css";
+@import "./_styles/reset.css";
+@import "./_styles/site.css";

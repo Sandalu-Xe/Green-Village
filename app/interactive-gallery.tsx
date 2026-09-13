@@ -26,6 +26,8 @@ const stackPositions = [
 export function InteractiveGallery({ photos, priorityCount = 0 }: { photos: GalleryPhoto[]; priorityCount?: number }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const visiblePhotos = isOpen ? photos : photos.slice(0, 6);
+
   const releaseGallery = () => setIsOpen(true);
   const handleStackKey = (event: KeyboardEvent<HTMLDivElement>) => {
     if (isOpen || (event.key !== "Enter" && event.key !== " ")) return;
@@ -43,7 +45,7 @@ export function InteractiveGallery({ photos, priorityCount = 0 }: { photos: Gall
         tabIndex={isOpen ? undefined : 0}
         aria-label={isOpen ? undefined : `Release ${photos.length} photographs into the gallery`}
       >
-        {photos.map((image, index) => {
+        {visiblePhotos.map((image, index) => {
           const stack = stackPositions[index % stackPositions.length];
           const style: GalleryStyle = {
             "--stack-x": stack[0],

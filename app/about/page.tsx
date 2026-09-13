@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
+import { PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "About Gunarathna — Teacher, Volunteer & Guide" };
 
 export default function AboutPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Meet Gunarathna"
@@ -126,7 +125,6 @@ export default function AboutPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

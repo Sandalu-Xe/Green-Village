@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, PhotoGrid, SectionHeading, SimpleCta } from "../components";
+import { PageHero, PhotoGrid, SectionHeading, SimpleCta } from "../components";
 import { stayPhotos, tourPhotos } from "../gallery-data";
 
 export const metadata: Metadata = {
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="The Green Village gallery"
@@ -49,7 +48,6 @@ export default function GalleryPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

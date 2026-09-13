@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "dist/**",
     "out/**",
     "build/**",
+    ".sites-runtime/**",
+    ".wrangler/**",
     "next-env.d.ts",
   ]),
   eslint.configs.recommended,
@@ -23,6 +25,10 @@ const eslintConfig = defineConfig([
   jsxA11y.flatConfigs.recommended,
   next.configs["core-web-vitals"],
   {
+    rules: {
+      "@next/next/no-html-link-for-pages": "off", // Static pages deliberately use native navigation.
+      "@next/next/no-img-element": "off", // Local, pre-optimized assets; no runtime image service.
+    },
     languageOptions: {
       globals: {
         ...globals.browser,

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
+import { PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Anuradhapura Travel Guide" };
 
@@ -15,7 +15,6 @@ const places = [
 export default function GuidePage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Anuradhapura travel guide"
@@ -60,7 +59,6 @@ export default function GuidePage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

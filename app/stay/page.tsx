@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading, SimpleCta } from "../components";
+import { PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Stay" };
 
 export default function StayPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Stay at Green Village"
@@ -65,7 +64,6 @@ export default function StayPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

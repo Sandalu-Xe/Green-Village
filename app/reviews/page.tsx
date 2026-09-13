@@ -1,12 +1,12 @@
+import { reviews } from "../_data/site";
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading, SimpleCta, reviews } from "../components";
+import { PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Reviews" };
 
 export default function ReviewsPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Guest impressions"
@@ -63,7 +63,6 @@ export default function ReviewsPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

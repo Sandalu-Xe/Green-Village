@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading } from "../components";
+import { PageHero, SectionHeading } from "../components";
 
 export const metadata: Metadata = { title: "Contact & Plan Your Visit" };
 
 export default function ContactPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Contact & plan your visit"
@@ -54,7 +53,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
