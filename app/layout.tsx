@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import { Header, Footer } from "./_components/site-layout";
+
+const inter = localFont({ src: "../public/fonts/inter-latin.woff2", variable: "--font-inter", weight: "400 800", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://green-village-anuradhapura.nipunaj688426.chatgpt.site"),
@@ -32,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body><Header />{children}<Footer /></body>
     </html>
   );
 }

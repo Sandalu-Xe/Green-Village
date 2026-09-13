@@ -1,12 +1,12 @@
+import { experienceCards } from "../_data/site";
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, SectionHeading, SimpleCta, experienceCards } from "../components";
+import { PageHero, SectionHeading, SimpleCta } from "../components";
 
 export const metadata: Metadata = { title: "Tours & Experiences" };
 
 export default function ExperiencesPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="Tours & experiences"
@@ -43,7 +43,7 @@ export default function ExperiencesPage() {
               <article className="landmark-card">
                 <span className="landmark-card__number">04</span>
                 <h3>Jetavanaramaya &amp; Museum</h3>
-                <p>Once the tallest brick structure in the ancient world. The on-site museum holds remarkable artefacts that bring the monastery's story to life.</p>
+                <p>Once the tallest brick structure in the ancient world. The on-site museum holds remarkable artefacts that bring the monastery&apos;s story to life.</p>
               </article>
               <article className="landmark-card">
                 <span className="landmark-card__number">05</span>
@@ -188,7 +188,6 @@ export default function ExperiencesPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }

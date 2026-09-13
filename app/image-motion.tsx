@@ -3,40 +3,46 @@
 import { useEffect } from "react";
 
 const motionSelector = [
-  ".feature-card__image-wrap",
-  ".story-photo",
-  ".page-hero__image-wrap",
-  ".impact-image",
-  ".experience-row img",
+  ".section-heading", ".feature-card", ".story-photo", ".story-copy",
+  ".page-hero__image-wrap", ".impact-image", ".experience-row",
+  ".quote-card", ".info-card", ".place-card", ".journey-card",
+  ".transport-card", ".landmark-card", ".contact-options article",
 ].join(",");
 
 export function ImageMotion() {
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll<HTMLElement>(motionSelector));
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      elements.forEach((element) => element.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(motionSelector))
+      .filter((element) => !element.parentElement?.closest(motionSelector));
+    let observer: IntersectionObserver | undefined;
+    const reset = () => {
+      observer?.disconnect();
+      elements.forEach((element) => element.classList.remove("motion-ready", "is-visible"));
+      if (preference.matches || !("IntersectionObserver" in window)) return;
+      observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+          const element = entry.target as HTMLElement;
+          if (element.contains(document.activeElement)) return;
+          element.style.setProperty("--reveal-y", entry.boundingClientRect.top < 0 ? "-24px" : "24px");
+          element.classList.toggle("is-visible", entry.isIntersecting);
         });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -7%" },
-    );
-
-    elements.forEach((element, index) => {
-      element.classList.add("motion-ready");
-      element.style.setProperty("--reveal-delay", `${(index % 6) * 55}ms`);
-      observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+      }, { threshold: 0, rootMargin: "0px 0px -24px" });
+      elements.forEach((element) => {
+        const index = Array.from(element.parentElement?.children ?? []).indexOf(element);
+        element.style.setProperty("--reveal-delay", `${Math.min(index * 70, 210)}ms`);
+        const rect = element.getBoundingClientRect();
+        element.classList.toggle("is-visible", rect.top < window.innerHeight && rect.bottom > 0);
+        element.classList.add("motion-ready");
+        observer?.observe(element);
+      });
+    };
+    reset();
+    preference.addEventListener("change", reset);
+    return () => {
+      observer?.disconnect();
+      preference.removeEventListener("change", reset);
+      elements.forEach((element) => element.classList.remove("motion-ready", "is-visible"));
+    };
   }, []);
 
   return null;

@@ -1,91 +1,61 @@
-import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
-import test from "node:test";
+import assert from 'node:assert/strict';
+import { readFile, access, readdir } from 'node:fs/promises';
+import test from 'node:test';
+import { visibleCopy } from './content.mjs';
+import { securityHeaders } from '../scripts/security.mjs';
+import { galleryPhotos, guestPhotos, stayPhotos, tourPhotos } from '../app/gallery-data.ts';
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
+const out = new URL('../out/', import.meta.url);
+const expected = JSON.parse(await readFile(new URL('expected-content.json', import.meta.url), 'utf8'));
 
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
+for (const [route, copy] of Object.entries(expected)) {
+  test(`${route}: preserves copy and a single shared layout`, async () => {
+    const html = await readFile(new URL(`${route}.html`, out), 'utf8');
+    assert.equal(visibleCopy(html), copy);
+    assert.equal((html.match(/class="site-header"/g) || []).length, 1);
+    assert.equal((html.match(/class="site-footer"/g) || []).length, 1);
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+    // Every inline executable script must be externalized for script-src 'self'.
+    for (const [, attributes, source] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+      assert.ok(/\bsrc=/.test(attributes) || !source.trim());
+    }
+    assert.match(html, /http-equiv="Content-Security-Policy"/);
+    for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"?#]+)"/g)) {
+      if (/\.(?:js|css|woff2|png|jpe?g|avif|webp|svg)$/.test(asset)) await access(new URL('.'+asset,out));
+    }
+  });
 }
 
-test("server-renders the starter loading skeleton", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+test('all 47 photos remain available; all 15 uploads are unique', async () => {
+  assert.equal(galleryPhotos.length, 47);
+  assert.equal(guestPhotos.length, 15);
+  assert.equal(stayPhotos.length + tourPhotos.length, 47);
+  assert.equal(new Set(galleryPhotos.map(photo => photo.src)).size, 47);
+  for (const photo of galleryPhotos) {
+    assert.ok(photo.alt && photo.caption);
+    await access(new URL('.'+photo.src, out));
+  }
+  for (const photo of guestPhotos) assert.ok(galleryPhotos.includes(photo));
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
-  ]);
+test('collapsed galleries only render six images per stack', async () => {
+  const home = await readFile(new URL('index.html', out), 'utf8');
+  const gallery = await readFile(new URL('gallery.html', out), 'utf8');
+  assert.equal((home.match(/<figure\b/g) || []).length, 6);
+  assert.equal((gallery.match(/<figure\b/g) || []).length, 12);
+});
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
-
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
-
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
-
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+test('security headers match on Sites and Vercel; exports contain no server or secrets', async () => {
+  const headers = await readFile(new URL('_headers', out), 'utf8');
+  const vercel = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
+  for (const [key,value] of Object.entries(securityHeaders)) {
+    assert.ok(headers.includes(`${key}: ${value}`));
+    assert.ok(vercel.headers[0].headers.some(header => header.key === key && header.value === value));
+  }
+  assert.ok(headers.split('\n').every(line => line.length <= 2000));
+  assert.match(headers, /script-src 'self';/);
+  assert.doesNotMatch(headers, /unsafe-eval|script-src[^;]*unsafe-inline/);
+  const files = await readdir(out, { recursive: true });
+  assert.ok(!files.some(file => /(^|\/)(?:node_modules|\.env[^/]*|\.git|server)(\/|$)|\.map$/.test(file)));
 });

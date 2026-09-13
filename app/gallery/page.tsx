@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer, Header, PageHero, PhotoGrid, SectionHeading, SimpleCta } from "../components";
+import { PageHero, PhotoGrid, SectionHeading, SimpleCta } from "../components";
 import { stayPhotos, tourPhotos } from "../gallery-data";
 
 export const metadata: Metadata = {
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <Header />
       <main>
         <PageHero
           eyebrow="The Green Village gallery"
@@ -24,7 +23,7 @@ export default function GalleryPage() {
           <div className="shell">
             <div className="gallery-heading-row">
               <SectionHeading
-                eyebrow="The homestay · 6 photographs"
+                eyebrow={`The homestay · ${stayPhotos.length} photographs`}
                 title="Your quiet village base."
                 intro="The guest room, veranda, garden home and nearby nature at Green Village."
               />
@@ -38,7 +37,7 @@ export default function GalleryPage() {
           <div className="shell">
             <div className="gallery-heading-row">
               <SectionHeading
-                eyebrow="Tours & experiences · 26 photographs"
+                eyebrow={`Tours & experiences · ${tourPhotos.length} photographs`}
                 title="Ancient Anuradhapura, personally shared."
                 intro="Sacred monuments, rock temples, reservoirs, village landscapes and moments with Gunarathna's guests."
               />
@@ -49,7 +48,6 @@ export default function GalleryPage() {
         </section>
         <SimpleCta />
       </main>
-      <Footer />
     </>
   );
 }
