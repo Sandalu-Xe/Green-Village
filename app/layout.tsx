@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ImageMotion } from "./image-motion";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Header, Footer } from "./_components/site-layout";
@@ -37,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body><Header />{children}<Footer /></body>
+      <body><ImageMotion /><Header />{children}<Footer /></body>
     </html>
   );
 }

@@ -1,11 +1,9 @@
 import { navItems } from "../_data/site";
-import { ImageMotion } from "../image-motion";
 import { NavigationBehavior } from "../navigation-behavior";
 
 export function Header() {
   return (
     <header className="site-header">
-      <ImageMotion />
       <NavigationBehavior />
       <div className="shell site-header__inner">
         <a className="brand" href="/" aria-label="Green Village Anuradhapura home">
