@@ -5,6 +5,24 @@ export type GalleryPhoto = {
   category: "Stay" | "Tour";
 };
 
+export const guestPhotos: GalleryPhoto[] = [
+  {"src": "/images/guest-moments/family-welcome.jpeg", "alt": "Guests and the host family standing together in the living room", "caption": "A warm family welcome", "category": "Stay"},
+  {"src": "/images/guest-moments/children-playing.jpeg", "alt": "Children playing together inside the homestay", "caption": "New friends at home", "category": "Stay"},
+  {"src": "/images/guest-moments/veranda-breakfast.jpeg", "alt": "Guests sharing breakfast at the veranda dining table", "caption": "Breakfast on the veranda", "category": "Stay"},
+  {"src": "/images/guest-moments/garden-breakfast.jpeg", "alt": "A family enjoying breakfast beside the garden", "caption": "Mornings by the garden", "category": "Stay"},
+  {"src": "/images/guest-moments/veranda-group-selfie.jpeg", "alt": "Hosts and guests taking a group selfie on the veranda", "caption": "Smiles on the veranda", "category": "Stay"},
+  {"src": "/images/guest-moments/family-and-guests.jpeg", "alt": "Guests taking a selfie with children outside the family home", "caption": "Shared village memories", "category": "Stay"},
+  {"src": "/images/guest-moments/village-evening-walk.jpeg", "alt": "Adults and children walking along a red-earth village road at dusk", "caption": "An evening village walk", "category": "Tour"},
+  {"src": "/images/guest-moments/safari-jeep-gathering.jpeg", "alt": "Guests and their guide beside safari jeeps under a large tree", "caption": "Ready for a day out", "category": "Tour"},
+  {"src": "/images/guest-moments/guesthouse-garden-selfie.jpeg", "alt": "Guests and the host family taking a selfie outside the guesthouse", "caption": "Together in the garden", "category": "Stay"},
+  {"src": "/images/guest-moments/shared-table.jpeg", "alt": "A group of guests sharing a meal on the covered veranda", "caption": "Around the family table", "category": "Stay"},
+  {"src": "/images/guest-moments/garden-farewell.jpeg", "alt": "Guests posing with their host outside the veranda", "caption": "Memories to take home", "category": "Stay"},
+  {"src": "/images/guest-moments/hilltop-view.jpeg", "alt": "A guide and two guests at a hilltop viewpoint above a white Buddha statue", "caption": "Views worth sharing", "category": "Tour"},
+  {"src": "/images/guest-moments/veranda-family-portrait.jpeg", "alt": "Hosts and visiting guests standing together on the veranda with a dog nearby", "caption": "Good company at Green Village", "category": "Stay"},
+  {"src": "/images/guest-moments/safari-jeep-ride.jpeg", "alt": "Guests and their guide seated in an open safari jeep", "caption": "Setting off together", "category": "Tour"},
+  {"src": "/images/guest-moments/homestay-selfie.jpeg", "alt": "Guests and hosts taking a selfie outside the brick-fronted homestay", "caption": "A personal welcome", "category": "Stay"},
+];
+
 export const stayPhotos: GalleryPhoto[] = [
   { src: "/images/family-guest-welcome.webp", alt: "Gunarathna and his family welcoming guests at Green Village", caption: "Guests become family", category: "Stay" },
   { src: "/images/stay/40e420b66f1aaf5f.avif", alt: "Green Village guesthouse beneath tropical trees", caption: "Welcome to Green Village", category: "Stay" },
@@ -12,6 +30,7 @@ export const stayPhotos: GalleryPhoto[] = [
   { src: "/images/stay/8c421cecd935a55c.avif", alt: "Green Village guest room with dressing table and window", caption: "Simple village comfort", category: "Stay" },
   { src: "/images/stay/bb7847e07c47b513.avif", alt: "Chairs on the private guesthouse veranda", caption: "A quiet veranda", category: "Stay" },
   { src: "/images/stay/7145002ed9686a48.avif", alt: "Peaceful river bordered by tropical greenery near Green Village", caption: "Nature close by", category: "Stay" },
+  ...guestPhotos.filter((photo) => photo.category === "Stay"),
 ];
 
 export const tourPhotos: GalleryPhoto[] = [
@@ -41,6 +60,7 @@ export const tourPhotos: GalleryPhoto[] = [
   { src: "/images/experiences/e1ae053df0b784c7.avif", alt: "Gunarathna with visiting guests beneath a large tree", caption: "Good company", category: "Tour" },
   { src: "/images/experiences/ec6e79821fe8f396.avif", alt: "Ancient spreading tree beside a rural path", caption: "Quiet paths", category: "Tour" },
   { src: "/images/experiences/fff9075b433136ea.avif", alt: "Sunlight filtering through the branches of an old tree", caption: "Shade along the way", category: "Tour" },
+  ...guestPhotos.filter((photo) => photo.category === "Tour"),
 ];
 
 export const galleryPhotos = [
@@ -55,5 +75,6 @@ export const galleryPhotos = [
   ...tourPhotos.slice(2, 7),
   stayPhotos[2],
   stayPhotos[3],
-  ...tourPhotos.slice(9),
+  ...tourPhotos.slice(9, 26),
+  ...guestPhotos,
 ];

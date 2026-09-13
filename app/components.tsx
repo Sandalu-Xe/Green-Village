@@ -1,4 +1,4 @@
-import { galleryPhotos, type GalleryPhoto } from "./gallery-data";
+import { galleryPhotos, guestPhotos, type GalleryPhoto } from "./gallery-data";
 import { ImageMotion } from "./image-motion";
 import { NavigationBehavior } from "./navigation-behavior";
 import { InteractiveGallery } from "./interactive-gallery";
@@ -224,11 +224,13 @@ export function PhotoGrid({ photos, priorityCount = 0 }: { photos: GalleryPhoto[
 }
 
 export function Gallery({ limit = 9 }: { limit?: number }) {
-  const visiblePhotos = limit ? galleryPhotos.slice(0, limit) : galleryPhotos;
+  const visiblePhotos = limit
+    ? [...galleryPhotos.slice(0, limit), ...guestPhotos.filter((photo) => !galleryPhotos.slice(0, limit).includes(photo))]
+    : galleryPhotos;
   return (
     <>
       <PhotoGrid photos={visiblePhotos} priorityCount={2} />
-      {limit ? <div className="gallery-more"><a className="button button--forest" href="/gallery">View all 32 photographs</a></div> : null}
+      {limit ? <div className="gallery-more"><a className="button button--forest" href="/gallery">View all {galleryPhotos.length} photographs</a></div> : null}
     </>
   );
 }
