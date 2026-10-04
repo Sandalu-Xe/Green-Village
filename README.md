@@ -44,3 +44,11 @@ CSP is included in HTML as well as hosting headers. HSTS applies when served ove
 Do not add secrets to browser code. Keep the lockfile current and re-run the audit after
 updates. Static hosting reduces server attack surface; it does not replace hosting-account
 security, dependency maintenance or external penetration testing.
+
+## Cloudflare Workers
+
+The existing `green-village` Worker serves the static export using `wrangler.jsonc`.
+Connect `Sandalu-Xe/Green-Village`, select production branch `main`, use
+`npm run build` as the build command and `npx wrangler deploy` as the deploy command.
+The configuration points to `out/` and serves the exported 404 page for unknown routes.
+No OpenNext adapter or server-side Next.js bundle is required.
