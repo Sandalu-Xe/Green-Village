@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useId, useRef, useState, type CSSProperties } from "react";
 import type { GalleryPhoto } from "./gallery-data";
 
 type GalleryStyle = CSSProperties & {
@@ -28,23 +28,12 @@ export function InteractiveGallery({ photos, priorityCount = 0 }: { photos: Gall
 
   const visiblePhotos = isOpen ? photos : photos.slice(0, 6);
 
-  const releaseGallery = () => setIsOpen(true);
-  const handleStackKey = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (isOpen || (event.key !== "Enter" && event.key !== " ")) return;
-    event.preventDefault();
-    releaseGallery();
-  };
+  const galleryId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   return (
     <div className={`gallery-stage ${isOpen ? "is-open" : "is-stacked"}`}>
-      <div
-        className="gallery-grid"
-        onClick={isOpen ? undefined : releaseGallery}
-        onKeyDown={handleStackKey}
-        role={isOpen ? undefined : "button"}
-        tabIndex={isOpen ? undefined : 0}
-        aria-label={isOpen ? undefined : `Release ${photos.length} photographs into the gallery`}
-      >
+      <div className="gallery-grid" id={galleryId}>
         {visiblePhotos.map((image, index) => {
           const stack = stackPositions[index % stackPositions.length];
           const style: GalleryStyle = {
@@ -74,11 +63,21 @@ export function InteractiveGallery({ photos, priorityCount = 0 }: { photos: Gall
             </figure>
           );
         })}
+        {!isOpen && <button
+          className="gallery-stack-open"
+          type="button"
+          aria-label={`Release ${photos.length} photographs into the gallery`}
+          aria-controls={galleryId}
+          aria-expanded={false}
+          onClick={() => { setIsOpen(true); toggleRef.current?.focus({ preventScroll: true }); }}
+        />}
       </div>
       <button
+        ref={toggleRef}
         className="gallery-stack-toggle"
         type="button"
         onClick={() => setIsOpen((current) => !current)}
+        aria-controls={galleryId}
         aria-expanded={isOpen}
       >
         <span>{isOpen ? "Gather photos" : "Release the gallery"}</span>
