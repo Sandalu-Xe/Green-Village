@@ -8,10 +8,6 @@ type GalleryStyle = CSSProperties & {
   "--stack-y": string;
   "--stack-rotate": string;
   "--stack-z": number;
-  "--stack-order": number;
-  "--drizzle-index": number;
-  "--drizzle-x": string;
-  "--drizzle-rotate": string;
 };
 
 const stackPositions = [
@@ -41,10 +37,6 @@ export function InteractiveGallery({ photos, priorityCount = 0 }: { photos: Gall
             "--stack-y": stack[1],
             "--stack-rotate": stack[2],
             "--stack-z": photos.length - index,
-            "--stack-order": index,
-            "--drizzle-index": index,
-            "--drizzle-x": `${((index % 5) - 2) * 28}px`,
-            "--drizzle-rotate": `${((index % 7) - 3) * 1.4}deg`,
           };
 
           return (

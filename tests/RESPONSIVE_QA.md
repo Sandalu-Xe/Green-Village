@@ -15,3 +15,11 @@ Real iOS Safari and Android devices, native browser zoom, screen readers, on-scr
 ## Layout technique
 
 `minmax(0, 1fr)` lets grid columns shrink below their content’s intrinsic width. Combined with wrapping and `min-width: 0` on children, long text can reflow without hiding overflow globally.
+
+## A Warm Welcome — 9 October 2026
+
+Replaced long clipping reveals and flying/spinning gallery entrances with 400ms one-time section entrances and an opacity-only reveal for added photos. Hero heading, image and actions render immediately. Mobile galleries use an ordinary grid even while collapsed. No animation dependency or continuous scroll handler was added.
+
+Verified in the in-app browser: homepage gallery at 320px, Enter/Space expansion, repeated toggling, collapse, retained button focus, six collapsed / 24 expanded photos, and no horizontal overflow. Desktop expansion at 1440px also preserves focus and viewport width. Captured the 390px mobile album. No console errors observed. Typecheck, lint, production build and all 11 regression tests passed.
+
+Reduced-motion CSS and preference listener were inspected; OS preference switching, real-phone frame rates and throttled performance were not measured in this pass. Menu opening is 220ms; closing is immediate to avoid delaying focus and hidden-state updates. The separately referenced WEBSITE_ANIMATION_GUIDELINES.md was not supplied or found.

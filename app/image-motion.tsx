@@ -2,15 +2,8 @@
 
 import { useEffect } from "react";
 
-const imageSelector = ".story-photo, .page-hero__image-wrap, .impact-image";
-const cardSelector = ".feature-card, .experience-row, .quote-card, .info-card, .place-card, .journey-card, .transport-card, .landmark-card, .contact-options article, .timeline li";
-const motionSelector = [
-  imageSelector, cardSelector,
-  ".section-heading > *, .section-heading--row > div > *",
-  ".story-copy > *, .page-hero__copy > *, .prose > *",
-  ".closing-cta__inner > div > *, .closing-cta__inner > .button",
-  ".location-card, .plan-card, .gallery-stage, .gallery-more",
-].join(",");
+const cardSelector = ".feature-card, .experience-row, .info-card, .place-card, .journey-card, .transport-card, .landmark-card";
+const motionSelector = `${cardSelector}, .story-grid, .quote-grid, .prose`;
 
 export function ImageMotion() {
   useEffect(() => {
@@ -39,10 +32,7 @@ export function ImageMotion() {
       elements.forEach((element) => {
         const siblings = Array.from(element.parentElement?.children ?? []);
         const index = siblings.indexOf(element);
-        element.dataset.motion = element.matches(imageSelector) ? "image"
-          : element.matches(cardSelector) ? "card"
-          : element.matches("h1, h2, h3") ? "heading" : "text";
-        element.style.setProperty("--reveal-delay", `${Math.min(index * 75, 225)}ms`);
+        element.style.setProperty("--reveal-delay", `${element.matches(cardSelector) ? Math.min(index * 50, 100) : 0}ms`);
         // Keep restored scroll positions and anything already read immediately visible.
         if (element.getBoundingClientRect().top < window.innerHeight * .85) reveal(element);
         element.classList.add("motion-ready");
@@ -64,5 +54,5 @@ export function ImageMotion() {
     };
   }, []);
 
-  return <span className="reading-progress" aria-hidden="true" />;
+  return null;
 }
